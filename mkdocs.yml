@@ -1,0 +1,40 @@
+site_name: Padrão Público de Governança de Conteúdo para IA
+site_description: Standard público e auditável para governança de conteúdo em sistemas de IA generativa
+site_author: Pedro Davi Dantas da Silva
+
+theme:
+  name: material
+  language: pt
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+
+nav:
+  - Início: index.md
+
+  - Núcleo do Padrão:
+      - Introdução: 00-introducao.md
+      - Escopo e Objetivos: 01-escopo-e-objetivos.md
+      - Premissas Normativas: 02-premissas-normativas.md
+      - Problema Jurídico: 03-problema-juridico.md
+      - Threat Model Legal: 04-threat-model-legal.md
+      - Estratégias de Mitigação: 05-estrategias-de-mitigacao.md
+      - Arquitetura de Governança: 06-arquitetura-de-governanca.md
+      - Posicionamento do LLM: 07-posicionamento-do-llm.md
+      - Fluxo Operacional: 08-fluxo-operacional.md
+      - Modelo de Decisão Versionado: 09-modelo-de-decisao-versionado.md
+      - OpenAPI de Decisão: 10-openapi-decisao-de-politica.md
+      - OPA / Rego: 11-opa-rego-politicas-executaveis.md
+      - Auditoria e Evidências: 12-auditoria-e-evidencias.md
+
+  - Anexos:
+      - Brasil: annexes/A-brasil.md
+      - União Europeia: annexes/B-uniao-europeia.md
+      - Estados Unidos: annexes/C-estados-unidos.md
+
+  - Conformidade:
+      - AIA / DPIA: aias/aia-dpia-completo.md
+      - Checklist de Auditoria: auditoria/checklist-auditoria-externa.md
+      - Runbook de Incidentes: incidentes/runbook-incidente-regulatorio.md
