@@ -1021,12 +1021,15 @@
 - assumir estado fora da requisição.</p>
 <hr />
 <h2 id="3-especificacao-openapi-exemplo-normativo">3. Especificação OpenAPI (Exemplo Normativo)<a class="headerlink" href="#3-especificacao-openapi-exemplo-normativo" title="Permanent link">&para;</a></h2>
-<p>
+<div class="codehilite">
+  <pre><code>
 openapi: 3.0.3
+
 info:
   title: API de Decisão Normativa
-  version: "1.0.0"</p>
-<p>paths:
+  version: "1.0.0"
+
+paths:
   /policy/decidir:
     post:
       summary: Decide permissibilidade de entrega de conteúdo
@@ -1035,16 +1038,18 @@ info:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PolicyRequest'
+              $ref: "#/components/schemas/PolicyRequest"
       responses:
-        '200':
+        "200":
           description: Decisão aplicada
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PolicyDecision'</p>
-<p>components:
+                $ref: "#/components/schemas/PolicyDecision"
+
+components:
   schemas:
+
     PolicyRequest:
       type: object
       required:
@@ -1056,24 +1061,25 @@ info:
         riscoLegal:
           type: number
         jurisdicao:
-          type: string</p>
-<div class="codehilite"><pre><span></span><code><span class="n">PolicyDecision</span><span class="o">:</span>
-<span class="w">  </span><span class="n">type</span><span class="o">:</span><span class="w"> </span><span class="n">object</span>
-<span class="w">  </span><span class="n">required</span><span class="o">:</span>
-<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">decisao</span>
-<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">policyVersion</span>
-<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">policyHash</span>
-<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">effectiveDate</span>
-<span class="w">  </span><span class="n">properties</span><span class="o">:</span>
-<span class="w">    </span><span class="n">decisao</span><span class="o">:</span>
-<span class="w">      </span><span class="n">type</span><span class="o">:</span><span class="w"> </span><span class="n">string</span>
-<span class="w">      </span><span class="n">enum</span><span class="o">:</span><span class="w"> </span><span class="o">[</span><span class="n">PERMITIR</span><span class="o">,</span><span class="w"> </span><span class="n">LIMITAR</span><span class="o">,</span><span class="w"> </span><span class="n">BLOQUEAR</span><span class="o">]</span>
-<span class="w">    </span><span class="n">policyVersion</span><span class="o">:</span>
-<span class="w">      </span><span class="n">type</span><span class="o">:</span><span class="w"> </span><span class="n">string</span>
-<span class="w">    </span><span class="n">policyHash</span><span class="o">:</span>
-<span class="w">      </span><span class="n">type</span><span class="o">:</span><span class="w"> </span><span class="n">string</span>
-<span class="w">    </span><span class="n">effectiveDate</span><span class="o">:</span>
-<span class="w">      </span><span class="n">type</span><span class="o">:</span><span class="w"> </span><span class="n">string</span>
+          type: string
+
+    PolicyDecision:
+      type: object
+      required:
+        - decisao
+        - policyVersion
+        - policyHash
+        - effectiveDate
+      properties:
+        decisao:
+          type: string
+          enum: [PERMITIR, LIMITAR, BLOQUEAR]
+        policyVersion:
+          type: string
+        policyHash:
+          type: string
+        effectiveDate:
+          type: string
 </code></pre></div>
 
 
