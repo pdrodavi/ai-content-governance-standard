@@ -912,7 +912,6 @@
 
 <hr />
 <h1 id="11-opa-rego-politicas-executaveismd">📄 11-opa-rego-politicas-executaveis.md<a class="headerlink" href="#11-opa-rego-politicas-executaveismd" title="Permanent link">&para;</a></h1>
-<p>```markdown</p>
 <h1 id="11-opa-rego-politicas-executaveis">11 — OPA / Rego: Políticas Executáveis<a class="headerlink" href="#11-opa-rego-politicas-executaveis" title="Permanent link">&para;</a></h1>
 <h2 id="1-objetivo-do-capitulo">1. Objetivo do Capítulo<a class="headerlink" href="#1-objetivo-do-capitulo" title="Permanent link">&para;</a></h2>
 <p>Este capítulo descreve como regras normativas são expressas de forma <strong>executável e verificável</strong> usando OPA / Rego.</p>
@@ -926,16 +925,19 @@
 - independentes do LLM.</p>
 <hr />
 <h2 id="3-exemplo-de-politica-rego">3. Exemplo de Política Rego<a class="headerlink" href="#3-exemplo-de-politica-rego" title="Permanent link">&para;</a></h2>
-<p>```rego
-package governanca.conteudo</p>
-<p>default decisao = "PERMITIR"</p>
-<p>decisao = "BLOQUEAR" {
-  input.dominio == "proibido_por_lei"
-}</p>
-<p>decisao = "LIMITAR" {
-  input.dominio == "sensivel"
-  input.riscoLegal &gt;= 0.6
-}</p>
+<pre>
+  <code>
+    package governanca.conteudo
+    default decisao = "PERMITIR"
+    decisao = "BLOQUEAR" {
+      input.dominio == "proibido_por_lei"
+    }
+    decisao = "LIMITAR" {
+      input.dominio == "sensivel"
+      input.riscoLegal &gt;= 0.6
+    }
+  </code>
+</pre>
 
 
 
