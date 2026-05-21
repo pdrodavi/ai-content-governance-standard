@@ -1,0 +1,55 @@
+openapi: 3.0.3
+info:
+  title: API de Decisão Normativa
+  version: "1.0.0"
+
+paths:
+  /policy/decidir:
+    post:
+      summary: Decide permissibilidade de entrega de conteúdo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PolicyRequest'
+      responses:
+        '200':
+          description: Decisão aplicada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PolicyDecision'
+
+components:
+  schemas:
+    PolicyRequest:
+      type: object
+      required:
+        - dominio
+        - riscoLegal
+      properties:
+        dominio:
+          type: string
+        riscoLegal:
+          type: number
+        jurisdicao:
+          type: string
+
+    PolicyDecision:
+      type: object
+      required:
+        - decisao
+        - policyVersion
+        - policyHash
+        - effectiveDate
+      properties:
+        decisao:
+          type: string
+          enum: [PERMITIR, LIMITAR, BLOQUEAR]
+        policyVersion:
+          type: string
+        policyHash:
+          type: string
+        effectiveDate:
+          type: string
